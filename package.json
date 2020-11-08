@@ -1,7 +1,8 @@
 {
 	"name": "vulture-vscode",
-	"displayName": "vulture-vscode",
+	"displayName": "Vulture",
 	"description": "Automatically invoke Vulture static analyzer for Python files",
+	"publisher": "sweetgiorni",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/sweetgiorni/vulture-vscode"
