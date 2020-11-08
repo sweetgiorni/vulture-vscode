@@ -2,7 +2,7 @@
 	"name": "vulture-vscode",
 	"displayName": "Vulture",
 	"description": "Automatically invoke Vulture static analyzer for Python files",
-	"publisher": "sweetgiorni",
+	"publisher": "AlexSweet",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/sweetgiorni/vulture-vscode"
