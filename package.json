@@ -2,6 +2,10 @@
 	"name": "vulture-vscode",
 	"displayName": "vulture-vscode",
 	"description": "Automatically invoke Vulture static analyzer for Python files",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sweetgiorni/vulture-vscode"
+	},
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.51.0"
