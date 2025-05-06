@@ -18,7 +18,7 @@ export default class VultureLintingProvider implements Linter {
         if (!section) section = workspace.getConfiguration();
 
         return {
-            executable: section.get<string>('linting.executablePath', 'vulture'),
+            executable: section.get<string>('linting.vulturePath', 'vulture'),
             fileArgs: [],
             bufferArgs: [],
             extraArgs: [],
