@@ -3,9 +3,9 @@ import { StringDecoder } from 'string_decoder';
 export class LineDecoder {
 	private stringDecoder: StringDecoder;
 	private remaining: string;
-	private lines: string[]
+	private lines: string[];
 
-	constructor(encoding: string = 'utf8') {
+	constructor(encoding: BufferEncoding = 'utf8') {
 		this.stringDecoder = new StringDecoder(encoding);
 		this.remaining = null;
 		this.lines = [];
@@ -18,7 +18,7 @@ export class LineDecoder {
 			: this.stringDecoder.write(buffer);
 
 		if (value.length < 1) {
-			this.lines = this.lines.concat(value)
+			this.lines = this.lines.concat(value);
 			return result;
 		}
 		var start = 0;
@@ -41,7 +41,7 @@ export class LineDecoder {
 			}
 		}
 		this.remaining = start < value.length ? value.substr(start) : null;
-		this.lines = this.lines.concat(result)
+		this.lines = this.lines.concat(result);
 		return result;
 	}
 

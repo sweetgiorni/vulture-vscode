@@ -18,7 +18,7 @@ namespace RunTrigger {
 		onSave: 'onSave',
 		onType: 'onType',
 		off: 'off'
-	}
+	};
 	export let from = function (value: string): RunTrigger {
 		if (value === 'onType') {
 			return RunTrigger.onType;
@@ -27,7 +27,7 @@ namespace RunTrigger {
 		} else {
 			return RunTrigger.off;
 		}
-	}
+	};
 }
 
 export interface LinterConfiguration {
@@ -123,7 +123,7 @@ export class LintingProvider {
 			let executable = this.linterConfiguration.executable;
 			let filePath = textDocument.fileName;
 			let decoder = new LineDecoder();
-			let decoded = []
+			let decoded = [];
 			let diagnostics: vscode.Diagnostic[] = [];
 
 			let options = vscode.workspace.rootPath ? { cwd: vscode.workspace.rootPath } : undefined;
@@ -135,7 +135,7 @@ export class LintingProvider {
 			//	args = this.linterConfiguration.bufferArgs;
 			//}
 			args = args.concat(this.linterConfiguration.extraArgs);
-			console.log(`Exe: ${executable}  args: ${args}`)
+			console.log(`Exe: ${executable}  args: ${args}`);
 			let childProcess = cp.spawn(executable, args, options);
 			childProcess.on('error', (error: Error) => {
 				if (this.executableNotFound) {
@@ -153,7 +153,7 @@ export class LintingProvider {
 				resolve();
 			});
 
-			let onDataEvent = (data: Buffer) => { decoder.write(data) };
+			let onDataEvent = (data: Buffer) => { decoder.write(data); };
 			let onEndEvent = () => {
 				decoder.end();
 				let lines = decoder.getLines();
@@ -162,7 +162,7 @@ export class LintingProvider {
 				}
 				this.diagnosticCollection.set(textDocument.uri, diagnostics);
 				resolve();
-			}
+			};
 
 			if (childProcess.pid) {
 				if (RunTrigger.from(this.linterConfiguration.runTrigger) === RunTrigger.onType) {

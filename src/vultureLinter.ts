@@ -8,14 +8,16 @@ export default class VultureLintingProvider implements Linter {
     public languageId = 'python';
 
     public activate(subscriptions: Disposable[]) {
-        console.log('Activated!')
+        console.log('Activated!');
         let provider = new LintingProvider(this);
-        provider.activate(subscriptions)
+        provider.activate(subscriptions);
     }
 
     public loadConfiguration(): LinterConfiguration {
         let section = workspace.getConfiguration(this.languageId);
-        if (!section) section = workspace.getConfiguration();
+        if (!section) {
+            section = workspace.getConfiguration();
+        }
 
         return {
             executable: section.get<string>('linting.vulturePath', 'vulture'),
@@ -23,7 +25,7 @@ export default class VultureLintingProvider implements Linter {
             bufferArgs: [],
             extraArgs: [],
             runTrigger: section.get<string>('linting.run', 'onType')
-        }
+        };
     }
 
     public process(lines: string[]): Diagnostic[] {
