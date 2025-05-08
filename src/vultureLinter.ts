@@ -23,7 +23,7 @@ export default class VultureLintingProvider implements Linter {
             executable: section.get<string>('linting.vulturePath', 'vulture'),
             fileArgs: [],
             bufferArgs: [],
-            extraArgs: [],
+            extraArgs: section.get<Array<string>>('linting.vultureArgs', []),
             runTrigger: section.get<string>('linting.run', 'onType')
         };
     }

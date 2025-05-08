@@ -127,14 +127,14 @@ export class LintingProvider {
 			let diagnostics: vscode.Diagnostic[] = [];
 
 			let options = vscode.workspace.rootPath ? { cwd: vscode.workspace.rootPath } : undefined;
-			let args: string[];
+			let args: string[] = [];
+			args = args.concat(this.linterConfiguration.extraArgs);
 			//if (RunTrigger.from(this.linterConfiguration.runTrigger) === RunTrigger.onSave) {
-			args = this.linterConfiguration.fileArgs.slice(0);
+			args = args.concat(this.linterConfiguration.fileArgs.slice(0));
 			args.push(textDocument.fileName);
 			//} else {
 			//	args = this.linterConfiguration.bufferArgs;
 			//}
-			args = args.concat(this.linterConfiguration.extraArgs);
 			console.log(`Exe: ${executable}  args: ${args}`);
 			let childProcess = cp.spawn(executable, args, options);
 			childProcess.on('error', (error: Error) => {

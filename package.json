@@ -7,7 +7,7 @@
 		"type": "git",
 		"url": "https://github.com/sweetgiorni/vulture-vscode"
 	},
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"engines": {
 		"vscode": "^1.51.0"
 	},
@@ -25,6 +25,11 @@
 					"type": "string",
 					"default": "vulture",
 					"description": "Points to the Vulture executable."
+				},
+				"python.linting.vultureArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Arguments to pass to Vulture."
 				}
 			}
 		}
@@ -40,7 +45,7 @@
 	"devDependencies": {
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^22.15.17",
-		"@types/vscode": "1.51.0",
+		"@types/vscode": "^1.99.1",
 		"@typescript-eslint/eslint-plugin": "^8.32.0",
 		"@typescript-eslint/parser": "^8.32.0",
 		"@vscode/dts": "^0.4.1",
